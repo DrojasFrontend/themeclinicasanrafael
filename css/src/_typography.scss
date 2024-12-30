@@ -1,0 +1,84 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+	font-style: normal;
+	font-weight: map-get($font-weights, "regular");
+}
+
+.h1 {
+	font-size: $h1-font-size * 0.65625;
+	line-height: 49px;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $h1-font-size;
+		line-height: 72px;
+	}
+}
+
+.h2 {
+	font-size: $h2-font-size * 0.75;
+	line-height: 42px;
+	letter-spacing: -0.36px;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $h2-font-size;
+		line-height: 54px;
+		letter-spacing: -0.48px;
+	}
+}
+
+.h3 {
+	font-size: $h3-font-size * 0.75;
+	line-height: 40px;
+	letter-spacing: -0.36px;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $h3-font-size;
+		line-height: 46px;
+		letter-spacing: -0.4px;
+	}
+}
+
+.h4 {
+	font-size: $h4-font-size * 0.65;
+	line-height: 28px;
+	letter-spacing: -0.22px;
+
+	@include media-breakpoint-up(lg) {
+		font-size: $h4-font-size;
+		line-height: 38px;
+		letter-spacing: -0.32px;
+	}
+}
+
+.h5 {
+	font-size: $h5-font-size;
+	line-height: 30px;
+	letter-spacing: -0.25px;
+
+	// @include media-breakpoint-up(lg) {
+	// 	font-size: $h5-font-size;
+	// 	line-height: 30px;
+	// 	letter-spacing: -0.25px;
+	// }
+}
+
+.p {
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: -0.18px;
+}
+
+.font {
+	&-sans {
+		font-family: "Source Sans 3", sans-serif;
+	}
+
+	&-gilda {
+		font-family: "Gilda Display", serif;
+	}
+}

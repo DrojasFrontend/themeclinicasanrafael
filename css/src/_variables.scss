@@ -1,0 +1,117 @@
+$grid-columns: 12;
+$grid-gutter-width: 36px;
+
+/* Brackpoint */
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1200px,
+	xxl: 1440px,
+);
+
+/* Containrer */
+$container-max-widths: (
+	sm: 100%,
+	md: 100%,
+	lg: 100%,
+	xl: 1240px,
+	xxl: 1240px,
+);
+
+/* Colores */
+$custom-colors: (
+	"transparent": #ffffff00,
+	"primary": #169bd7,
+	"primary-1": #abd3e71a,
+	"primary-15": #abd3e726,
+	"primary-40": #abd3e766,
+	"primary-50": #DAF8FF,
+	"primary-100": #ABD3E7,
+	"primary-150": #1B4F79,
+	"primary-200": #0B2F4B,
+	"primary-300": #1A5091,
+	"secondary": #1f1323,
+	"secondary-50": #1f132380,
+	"secondary-100": #4D434E,
+	"purple": #552d63,
+	"purple-100": #552d631a,
+	"white": #ffffff,
+	"white-300": #F3EEF4,
+	"black": #000000,
+	"gray": #4F5252,
+	"gray-100": #A79FAD,
+	"gray-200": #DCDCDC,
+);
+
+// Tamaños de fuente para headings
+$h1-font-size: 4rem; // 64px
+$h2-font-size: 3rem; // 48px
+$h3-font-size: 2.5rem; // 40px
+$h4-font-size: 2rem; // 32px
+$h5-font-size: 1.563rem; // 25px
+$p-font-size: 0.875rem; // 14px
+
+// Font weights
+$font-weights: (
+	"light": 300,
+	"regular": 400,
+	"medium": 500,
+	"semibold": 600,
+	"bold": 700,
+);
+
+/* Box shadow */
+$box-shadows: (
+	"card": 0 2px 4px rgba(0, 0, 0, 0.08),
+	"thumbnails": 0 10px 30px rgb(0 0 0 / 19%),
+	"hover": 0 8px 16px rgba(0, 0, 0, 0.12),
+	"tarjeta": 0px 42px 60px 0px rgba(21, 29, 40, 0.15),
+	"none": none,
+);
+
+/* Boder radius */
+$border-radius: 12px;
+$border-radius-values: (
+	null: $border-radius,
+	// 12px
+	0: 0,
+	none: none,
+);
+
+$spacers: (
+	0: 0,
+	2: 0.125rem,
+	6: 0.375rem,
+	10: 0.625rem,
+	12: 0.75rem,
+	14: 0.875rem,
+	16: 1rem,
+	18: 1.125rem,
+	24: 1.5rem,
+	30: 1.875rem,
+	36: 2.25rem,
+	38: 2.375rem,
+	42: 2.625rem,
+	50: 3.125rem,
+	52: 3.25rem,
+	60: 3.75rem,
+	72: 4.5rem,
+	80: 5rem,
+	84: 5.25rem,
+	90: 5.625rem,
+	100: 6.25rem,
+	120: 7.5rem,
+	140: 8.75rem,
+	150: 9.375rem,
+);
+
+/* Inputs */
+$input-btn-font-family: "Source Sans 3", sans-serif;
+$input-btn-font-size: 18px;
+$input-btn-padding-y: 14px;
+$input-btn-padding-x: 14px;
+$input-bg: map-get($custom-colors, "white");
+$input-border: none;
+

@@ -1,0 +1,65 @@
+.btn {
+  @extend .font-sans;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  width: 100%;
+	min-width: 210px;
+	font-size: 1.125rem;
+  padding: 1rem 2.188rem;
+	border: 0;
+	border-radius: 0 1.125rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.375rem;
+	box-shadow: 0 0.375rem 0.75rem 0 rgba(17, 48, 73, 0.21);
+	transition: all .4s ease;
+
+  @media only screen and (min-width: 1024px) {
+    width: max-content;
+  }
+
+	&-primary {
+		@extend .text-white, .bg-primary;
+
+		&:hover {
+			@extend .bg-primary-150, .text-white;
+		}
+
+		&-100 {
+			color: #1B4F79;
+			@extend .bg-primary-100;
+
+			&:hover {
+				@extend .bg-primary-150, .text-white;
+			}
+		}
+	}
+
+	&-white {
+		@extend .text-primary, .bg-white;
+
+		&:hover {
+			@extend .bg-primary, .text-white;
+		}
+	}
+
+	&-transparent {
+		@extend .text-white;
+		border: 1px solid #fff;
+
+		&:hover {
+			@extend .bg-white, .text-secondary;
+		}
+	}
+
+	&-gray {
+		&-200 {
+			@extend .bg-gray-200, .text-white;
+		}
+	}
+
+	&-center {
+		margin: 0 auto;
+	}
+}
