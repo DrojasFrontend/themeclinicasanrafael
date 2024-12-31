@@ -7,10 +7,15 @@ import "swiper/css/navigation";
 
 export const initServiciosSwiper = () => {
 	const swiper = new Swiper(".serviciosSwiper", {
-		modules: [Pagination],
+		modules: [Pagination, Navigation],
 		slidesPerView: "auto",
 		spaceBetween: 36,
 		centeredSlides: false,
+		navigation: {
+			nextEl: ".swiper-button-next-not",
+			prevEl: ".swiper-button-prev-not",
+			clickable: true,
+		},
 		pagination: {
 			el: ".swiper-pagination-ser",
 			type: "bullets",

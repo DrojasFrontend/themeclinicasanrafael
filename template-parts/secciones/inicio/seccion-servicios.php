@@ -9,9 +9,9 @@ $cta_url         = !empty($cta['url']) ? esc_url($cta['url']) : '';
 $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
 ?>
 
-<section class="seccionServicios position-relative overflow-hidden pt-lg-72 pt-42">
-    <div class="container">
-        <div class="d-flex justify-between align-end gap-lg-8 mb-lg-72 mb-30">
+<section class="seccionServicios position-relative overflow-hidden pt-lg-72 pt-42 px-lg-60">
+    <div class="container position-relative">
+        <div class="d-flex justify-lg-between justify-center align-end gap-lg-8 mb-lg-72 mb-30">
             <div>
                 <?php if ($subtitulo) { ?>
                     <p class="subtitulo text-purple mb-12 text-lg-start text-center"><?php echo $subtitulo; ?></p>
@@ -33,8 +33,8 @@ $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
         </div>
         <div class="row">
             <div class="position-static">
-                <div class="swiper serviciosSwiper extended-swiper">
-                    <div class="swiper-wrapper">
+                <div class="swiper serviciosSwiper extended-swiper ms-lg-n60 overflow-lg-inherit">
+                    <div class="swiper-wrapper ps-lg-60 pb-lg-90">
                         <?php
                         $args = array(
                             'post_type' => 'servicios',
@@ -48,7 +48,7 @@ $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
                             while($servicios->have_posts()): $servicios->the_post();
                             ?>
                             <div class="swiper-slide">
-                                <div class="seccionServicios__tarjeta rounded overflow-hidden clickeable hover">
+                                <div class="seccionServicios__tarjeta rounded overflow-hidden clickeable hover hover-tarjeta">
                                     <?php if(has_post_thumbnail()): ?>
                                         <div class="d-flex">
                                             <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" class="w-100" alt="<?php echo get_the_title(); ?>" title="<?php echo get_the_title(); ?>">
@@ -71,11 +71,21 @@ $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
                         ?>
                     </div>
                 </div>
-                <div class="d-flex justify-center gap-24 pt-lg-60 pt-30">
+                <div class="swiper-button-azul swiper-button-prev-not"></div>
+                <div class="swiper-button-azul swiper-button-next-not"></div>
+                <div class="d-flex justify-center gap-24 pt-lg-0 pt-30">
                     <div class="swiper-fraction swiper-fraction-ser d-flex"></div>
                     <div class="custom-pagination swiper-pagination-ser"></div>
                 </div>
             </div>
+        </div>
+        <div class="d-lg-none">
+            <?php if($cta_text) { ?>
+                <a class="font-sans p text-primary fw-bold d-flex justify-center gap-6 mt-30 hover" href="<?php echo $cta_url; ?>" target="<?php echo $cta_target;?>" title="<?php echo $cta_text; ?>">
+                    <span class="hover-link"><?php echo $cta_text; ?></span>
+                    <i class="icono icono-flecha"></i>
+                </a>
+            <?php } ?>
         </div>
     </div>
 </section>

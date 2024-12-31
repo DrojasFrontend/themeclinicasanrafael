@@ -237,6 +237,7 @@ $utilities: (
 			),
 		),
 	"shadow": (
+		responsive: true,
 		property: box-shadow,
 		class: shadow,
 		values: $box-shadows,
