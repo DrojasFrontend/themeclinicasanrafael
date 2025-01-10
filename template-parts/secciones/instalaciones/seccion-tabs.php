@@ -85,12 +85,54 @@ function display_sedes_tabs() {
                     ?>
                     <div class="container px-0 px-lg-18">
                         <div class="swiper tarjetaTextoSwiper overflow-lg-inherit">
-                            <div class="swiper-wrapper d-lg-grid grid-cols-lg-3 gap-lg-36 ps-lg-0 ps-24">
+                            <div class="swiper-wrapper d-lg-grid ">
                                 <?php
                                 while ($query->have_posts()) {
                                     $query->the_post();
+                                    $grupo_contacto  = get_field('grupo_contacto', get_the_ID());
+                                    $items           = !empty($grupo_contacto['items']) ? $grupo_contacto['items'] : [];
+
+                                    $cta             = !empty($grupo_contacto['conocer_horarios']) ? $grupo_contacto['conocer_horarios'] : [];
+                                    $cta_text        = !empty($cta['title']) ? esc_html($cta['title']) : '';
+                                    $cta_url         = !empty($cta['url']) ? esc_url($cta['url']) : '';
+                                    $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
+                                    
                                     ?>
-                                    <div class="swiper-slide w-lg-100 rounded bg-white shadow-lg-tarjeta overflow-hidden">
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="h4 text-purple mb-12"><?php the_title(); ?></h3>
+
+                                            <?php foreach ($items as $key => $item) { 
+                                                $icono      = !empty($item['icono']) ? $item['icono'] : '';
+                                                $item_cta        = !empty($item['enlace']) ? $item['enlace'] : [];
+                                                $item_cta_text   = !empty($cta['title']) ? esc_html($cta['title']) : '';
+                                                $item_cta_url    = !empty($cta['url']) ? esc_url($cta['url']) : '';
+                                                $item_cta_target = !empty($cta['target']) ? esc_attr($cta['target']) : '';
+                                            ?>
+
+                                                <a href="<?php echo $item_cta_text; ?>" target="<?php echo $item_cta_target; ?>" class="" title="<?php echo $item_cta_text; ?>">
+                                                    <img src="<?php echo $icono; ?>" alt="<?php echo $item_cta_text; ?>" title="<?php echo $item_cta_text; ?>">
+                                                    <?php echo $cta_text; ?>
+                                                </a>   
+                                            <?php } ?>
+
+                                            <a class="btn btn-primary" href="<?php echo $cta_text; ?>" target="<?php echo $cta_target; ?>" title="<?php echo $cta_text; ?>">
+                                                <?php echo $cta_text; ?>
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <?php if (has_post_thumbnail()): ?>
+                                                <div class="seccionTabsTarjetas__img">
+                                                    <?php the_post_thumbnail('large', array('class' => 'img-fluid d-flex')); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- <div class="swiper-slide w-lg-100 rounded bg-white shadow-lg-tarjeta overflow-hidden">
                                         <div class="h-100 clickeable hover">
                                             <?php if (has_post_thumbnail()): ?>
                                                 <div class="seccionTabsTarjetas__img">
@@ -105,7 +147,7 @@ function display_sedes_tabs() {
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <?php
                                 }
                                 ?>

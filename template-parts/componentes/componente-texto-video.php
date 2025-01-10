@@ -40,12 +40,36 @@ $imagen_id                    = !empty($grupo_texto_video['imagen']['ID']) ? int
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="icono icono-cerrar"></i>
+        </button>
       </div>
       <div class="modal-body">
+        <?php if (!empty($video_youtube)) : ?>
+          <div class="ratio ratio-16x9">
+            <?php 
+            // Extraer ID del video de YouTube
+            $video_id = '';
+            if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $video_youtube, $match)) {
+                $video_id = $match[1];
+            }
+            ?>
+            <iframe src="https://www.youtube.com/embed/<?php echo esc_attr($video_id); ?>" 
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+        <?php elseif (!empty($video_upload)) : ?>
+          <div class="ratio ratio-16x9">
+            <video controls controlsList="nodownload">
+              <source src="<?php echo esc_url($video_upload); ?>" type="video/mp4">
+              Su navegador no soporta el formato de video.
+            </video>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ $items            = !empty($group_card_icons['tarjetas']) ? $group_card_icons['t
         $cta_url      = !empty($cta['url']) ? esc_url($cta['url']) : '';
         $cta_target   = !empty($cta['target']) ? $cta['target'] : '';
       ?>
-        <div class="col-xl-3 col-md-6 mb-xl-0 mb-36">
+        <div class="col-xl-3 col-md-6 mb-36">
           <a class="d-block px-xl-24 px-18 pt-xl-42 pb-xl-38 pt-30 pb-30 border rounded hover-tarjeta" href="<?php echo $cta_url; ?>" target="<?php echo $cta_target; ?>">
             <div class="d-flex flex-lg-column flex-row gap-lg-8 gap-18">
               <span>

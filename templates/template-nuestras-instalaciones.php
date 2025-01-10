@@ -28,6 +28,8 @@ $mostrar_contacto               = ($contentGlobal) ? get_field('mostrar_contacto
       <!-- Fin Contacto -->
     <?php } ?>
 
+    <?php get_template_part('template-parts/secciones/instalaciones/seccion', 'tabs') ?>
+
     <?php if($mostrar_servicios_destacados) { ?>
       <!-- Texto y Video -->
       <?php get_template_part('template-parts/secciones/instalaciones/seccion', 'carusel-destacados') ?>
