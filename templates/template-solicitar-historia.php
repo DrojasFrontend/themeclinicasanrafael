@@ -22,7 +22,7 @@ $mostrar_contacto         = ($contentGlobal) ? get_field('mostrar_contacto', $co
     <?php get_template_part('template-parts/componentes/componente', 'banner-titulo-desc', array(
       'titulo' => get_the_title(),
       'descripcion' => $descripcion,
-      )) ?>
+    )) ?>
 
     <?php if($mostrar_formulario) { ?>
       <!-- Formulario Historia Clinica -->
