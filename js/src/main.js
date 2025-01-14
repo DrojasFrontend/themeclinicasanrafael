@@ -7,6 +7,7 @@ import {
 	initHeroCaruselSwiper,
 	initTarjetaTextoSwiper,
 	initVacantesSwiper,
+	initTabSedesSwiper,
 } from "./swiper-init";
 import { initClickableCards } from "./card-click-init";
 import {} from  "./especialidades-init";
@@ -32,6 +33,9 @@ let Main = {
 			}
 			if (document.querySelector(".vacantesSwiper")) {
 				initVacantesSwiper();
+			}
+			if (document.querySelector(".tabSedesSwiper")) {
+				initTabSedesSwiper();
 			}
 
 			initClickableCards(".clickeable");

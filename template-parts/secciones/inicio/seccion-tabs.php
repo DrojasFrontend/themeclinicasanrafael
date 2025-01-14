@@ -43,6 +43,7 @@ function display_sedes_tabs() {
                                 data-bs-target="#<?php echo esc_attr($slug); ?>" 
                                 type="button" 
                                 role="tab" 
+                                data-tab="<?php echo esc_html($category->name); ?>"
                                 aria-controls="<?php echo esc_attr($slug); ?>" 
                                 aria-selected="<?php echo $first ? 'true' : 'false'; ?>">
                             <?php echo esc_html($category->name); ?>

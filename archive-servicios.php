@@ -37,8 +37,6 @@ $mostrar_contacto = ($contentGlobal) ? get_field('mostrar_contacto', $contentGlo
 	</div>
 </div>
 
-  	
-
 <div class="bg-primary-40 py-42">
 	<div class="container">
 		<div class="row">
@@ -87,6 +85,7 @@ $mostrar_contacto = ($contentGlobal) ? get_field('mostrar_contacto', $contentGlo
 		 <?php else : ?>
 			 <div class="no-results">
 				 <p>No se encontraron servicios</p>
+				 <a href="/servicios" class="btn btn-primary btn-center">Volver</a>
 			 </div>
 		 <?php endif; ?>
 	   </div>
@@ -95,6 +94,8 @@ $mostrar_contacto = ($contentGlobal) ? get_field('mostrar_contacto', $contentGlo
 	   </div>
 	 </div>
  </div>
+
+ 	<?php get_template_part('template-parts/secciones/servicios/seccion', 'texto-cta-imagen-fondo') ?>
 
   <?php if($mostrar_contacto) { ?>
     <!-- Contacto -->

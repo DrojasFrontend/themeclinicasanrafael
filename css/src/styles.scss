@@ -412,6 +412,12 @@ strong {
 }
 
 .swiper {
+	@extend .d-none;
+
+	&-initialized {
+		@extend .d-block;
+	}
+
 	&-fraction {
 		span {
 			@extend .font-sans, .text-primary;
@@ -464,7 +470,9 @@ strong {
 		&-prev,
 		&-next,
 		&-prev-not,
-		&-next-not {
+		&-next-not,
+		&-prev-tab,
+		&-next-tab {
 			position: absolute;
 			display: none;
 			width: 70px;
@@ -510,7 +518,8 @@ strong {
 		}
 
 		&-prev,
-		&-prev-not {
+		&-prev-not,
+		&-prev-tab {
 			&.swiper-button-blanco {
 				left: -75px;
 				background: url(../../images/iconos/icono-anterior-blanco.png);
@@ -523,7 +532,8 @@ strong {
 		}
 
 		&-next,
-		&-next-not {
+		&-next-not,
+		&-next-tab {
 			&.swiper-button-blanco {
 				right: -75px;
 				background: url(../../images/iconos/icono-siguiente-blanco.png);
@@ -1296,7 +1306,15 @@ span.mfcf7-zl-multifile-name {
 					width: 100%;
 				}
 			}
+
+			&-text {
+				&-blue {
+					@extend .text-primary;
+				}
+			}
 		}
+
+		
 	}
 
 	&-link,

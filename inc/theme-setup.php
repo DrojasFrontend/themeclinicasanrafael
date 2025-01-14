@@ -155,3 +155,40 @@ function agregar_menu_whatsapp() {
         <?php
       }
   }
+
+/* 
+* Imagen secundaria en el postype sedes
+*/
+if( function_exists('acf_add_local_field_group') ):
+    acf_add_local_field_group(array(
+        'key' => 'group_imagen_secundaria',
+        'title' => 'Imagen Secundaria',
+        'fields' => array(
+            array(
+                'key' => 'field_imagen_secundaria',
+                'label' => 'Segunda Imagen',
+                'name' => 'imagen_secundaria',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+                'required' => 0,
+            )
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'sedes', 
+                ),
+            ),
+        ),
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'menu_order' => 1, 
+    ));
+    
+    endif;

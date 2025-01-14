@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 get_header();
 
 $mostrar_texto_cta_imagen_fondo = get_field('mostrar_texto_cta_imagen_fondo');
+$mostrar_sedes                  = get_field('mostrar_sedes');
 $mostrar_servicios_destacados   = get_field('mostrar_servicios_destacados');
 $mostrar_texto_video            = get_field('mostrar_texto_video');
 $contentGlobal                  = get_page_by_path('contenido-global')->ID;
@@ -28,7 +29,11 @@ $mostrar_contacto               = ($contentGlobal) ? get_field('mostrar_contacto
       <!-- Fin Contacto -->
     <?php } ?>
 
-    <?php get_template_part('template-parts/secciones/instalaciones/seccion', 'tabs') ?>
+    <?php if($mostrar_sedes) { ?>
+      <!-- Sedes -->
+      <?php get_template_part('template-parts/secciones/instalaciones/seccion', 'tabs') ?>
+      <!-- Fin Sedes -->
+    <?php } ?>
 
     <?php if($mostrar_servicios_destacados) { ?>
       <!-- Texto y Video -->

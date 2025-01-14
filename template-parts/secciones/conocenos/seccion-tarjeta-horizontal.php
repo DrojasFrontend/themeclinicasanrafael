@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-5 pe-xl-36 mb-lg-0 mb-36">
-    <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid rounded overflow-hidden', 'title' => the_title()]);; ?>
+    <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid rounded overflow-hidden', 'title' => get_the_title()]);; ?>
   </div>
   <div class="col-lg-7 ps-xl-0">
     <div>

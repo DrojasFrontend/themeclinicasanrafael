@@ -82,7 +82,7 @@ $texto_noresultados     = !empty($grupo_especialistas['texto_noresultados']) ? e
                         </div>
                     <?php endwhile; ?>
                 <?php else : ?>
-                    <h3 class="h3 m-0 mb-lg-72 mb-42 text-secondary">No se encontraron especialistas/h3>
+                    <h3 class="h3 m-0 mb-lg-72 mb-42 text-secondary">No se encontraron especialistas</h3>
                 <?php endif; ?>
             </div>
             <div id="loading" class="loading" style="display: none;">

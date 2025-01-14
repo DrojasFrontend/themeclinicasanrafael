@@ -1,5 +1,25 @@
 <?php
-function display_sedes_tabs() {
+$grupo_sedes = get_field('grupo_sedes');
+$pagina_subtitulo   = !empty($grupo_sedes['subtitulo']) ? esc_html($grupo_sedes['subtitulo']) : '';
+$pagina_titulo      = !empty($grupo_sedes['titulo']) ? $grupo_sedes['titulo'] : '';
+?>
+
+<div class="seccionTabsTarjetas bg-purple-100 pt-lg-72 pt-60">
+    <div class="container px-0">
+        <div class="pb-lg-60 pb-30 text-center">
+            <?php if ($pagina_subtitulo) { ?>
+                <p class="subtitulo text-purple mb-12"><?php echo $pagina_subtitulo; ?></p>
+            <?php } ?>
+            
+            <?php get_template_part('template-parts/componentes/componente', 'titulo-h2', array(
+                'titulo' => $pagina_titulo,
+                'clase' => '',
+            ))?>
+        </div>
+    </div>
+</div>
+
+<?php function display_sedes_tabs() {
     $categories = get_terms(array(
         'taxonomy' => 'categoria_sedes',
         'hide_empty' => false,
@@ -11,38 +31,23 @@ function display_sedes_tabs() {
         echo '<p>No se encontraron categorías de sedes.</p>';
         return;
     }
-    $grupo_nuestras_sedes   = get_field('grupo_nuestras_sedes');
-    $fondo                  = !empty($grupo_nuestras_sedes['fondo']) ? $grupo_nuestras_sedes['fondo'] : '';
-    $subtitulo              = !empty($grupo_nuestras_sedes['subtitulo']) ? $grupo_nuestras_sedes['subtitulo'] : '';
-    $titulo                 = !empty($grupo_nuestras_sedes['titulo']) ? $grupo_nuestras_sedes['titulo'] : '';
     ?>
-    <div class="seccionTabsTarjetas bg-primary-1 pt-lg-72 pt-60 overflow-x-auto overflow-y-hidden">
+    <div class="bg-purple-100">
         <div class="container px-0">
-
-        <div class="pb-60 text-center">
-            <?php if ($subtitulo) { ?>
-                <p class="subtitulo text-purple mb-12"><?php echo $subtitulo; ?></p>
-            <?php } ?>
-            
-            <?php get_template_part('template-parts/componentes/componente', 'titulo-h2', array(
-                'titulo' => $titulo,
-                'clase' => '',
-            ))?>
-        </div>
-
-            <ul class="tab-link d-flex justify-lg-center gap-2 ps-24 ps-lg-0" id="sedesTabs" role="tablist">
+            <ul class="tab-link d-flex justify-lg-center gap-2 ps-18 ps-lg-0" id="sedesTabs" role="tablist">
                 <?php 
                 $first = true;
                 foreach ($categories as $category) {
                     $slug = $category->slug;
                 ?>
                     <li class="" role="presentation">
-                        <button class="p text-primary fw-bold py-16 px-30 bg-white border-0 rounded-tr-18 <?php echo $first ? 'active' : ''; ?>" 
+                        <button class="p text-primary fw-bold py-16 px-30 bg-white border-0 rounded-tr-18 tab-button <?php echo $first ? 'active' : ''; ?>" 
                                 id="<?php echo esc_attr($slug); ?>-tab" 
                                 data-bs-toggle="tab" 
                                 data-bs-target="#<?php echo esc_attr($slug); ?>" 
                                 type="button" 
-                                role="tab" 
+                                role="tab"
+                                data-tab="<?php echo esc_html($category->name); ?>"
                                 aria-controls="<?php echo esc_attr($slug); ?>" 
                                 aria-selected="<?php echo $first ? 'true' : 'false'; ?>">
                             <?php echo esc_html($category->name); ?>
@@ -56,7 +61,7 @@ function display_sedes_tabs() {
         </div>
     </div>
 
-    <div class="tab-content py-lg-72 pt-60" id="sedesTabsContent" style="background: url(<?php echo $fondo; ?>); background-size: cover;">
+    <div class="tab-content py-lg-72 pt-60 px-lg-60 bg-white-100" id="sedesTabsContent">
         <?php
         $first = true;
         foreach ($categories as $category) {
@@ -83,86 +88,74 @@ function display_sedes_tabs() {
                 <?php
                 if ($query->have_posts()) {
                     ?>
-                    <div class="container px-0 px-lg-18">
-                        <div class="swiper tarjetaTextoSwiper overflow-lg-inherit">
-                            <div class="swiper-wrapper d-lg-grid ">
-                                <?php
-                                while ($query->have_posts()) {
-                                    $query->the_post();
-                                    $grupo_contacto  = get_field('grupo_contacto', get_the_ID());
-                                    $items           = !empty($grupo_contacto['items']) ? $grupo_contacto['items'] : [];
-
-                                    $cta             = !empty($grupo_contacto['conocer_horarios']) ? $grupo_contacto['conocer_horarios'] : [];
-                                    $cta_text        = !empty($cta['title']) ? esc_html($cta['title']) : '';
-                                    $cta_url         = !empty($cta['url']) ? esc_url($cta['url']) : '';
-                                    $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
-                                    
-                                    ?>
-
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h3 class="h4 text-purple mb-12"><?php the_title(); ?></h3>
-
-                                            <?php foreach ($items as $key => $item) { 
-                                                $icono      = !empty($item['icono']) ? $item['icono'] : '';
-                                                $item_cta        = !empty($item['enlace']) ? $item['enlace'] : [];
-                                                $item_cta_text   = !empty($cta['title']) ? esc_html($cta['title']) : '';
-                                                $item_cta_url    = !empty($cta['url']) ? esc_url($cta['url']) : '';
-                                                $item_cta_target = !empty($cta['target']) ? esc_attr($cta['target']) : '';
-                                            ?>
-
-                                                <a href="<?php echo $item_cta_text; ?>" target="<?php echo $item_cta_target; ?>" class="" title="<?php echo $item_cta_text; ?>">
-                                                    <img src="<?php echo $icono; ?>" alt="<?php echo $item_cta_text; ?>" title="<?php echo $item_cta_text; ?>">
-                                                    <?php echo $cta_text; ?>
-                                                </a>   
-                                            <?php } ?>
-
-                                            <a class="btn btn-primary" href="<?php echo $cta_text; ?>" target="<?php echo $cta_target; ?>" title="<?php echo $cta_text; ?>">
-                                                <?php echo $cta_text; ?>
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <?php if (has_post_thumbnail()): ?>
-                                                <div class="seccionTabsTarjetas__img">
-                                                    <?php the_post_thumbnail('large', array('class' => 'img-fluid d-flex')); ?>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-
-
-
-                                    <!-- <div class="swiper-slide w-lg-100 rounded bg-white shadow-lg-tarjeta overflow-hidden">
-                                        <div class="h-100 clickeable hover">
-                                            <?php if (has_post_thumbnail()): ?>
-                                                <div class="seccionTabsTarjetas__img">
-                                                    <?php the_post_thumbnail('large', array('class' => 'img-fluid d-flex')); ?>
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="p-24">
-                                                <h3 class="h4 text-purple mb-12"><?php the_title(); ?></h3>
-                                                <a href="<?php the_permalink(); ?>" class="font-sans p text-primary fw-bold d-flex align-center gap-6">
-                                                    <span class="hover-link">Conoce más</span>
-                                                    <i class="icono icono-flecha"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                    <div class="container">
+                        <div class="position-relative">
+                            <div class="swiper tabSedesSwiper">
+                                <div class="swiper-wrapper">
                                     <?php
-                                }
-                                ?>
+                                        while ($query->have_posts()) {
+                                            $query->the_post();
+                                            $grupo_contacto  = get_field('grupo_contacto', get_the_ID());
+                                            $items           = !empty($grupo_contacto['items']) ? $grupo_contacto['items'] : [];
+    
+                                            $cta             = !empty($grupo_contacto['conocer_horarios']) ? $grupo_contacto['conocer_horarios'] : [];
+                                            $cta_text        = !empty($cta['title']) ? esc_html($cta['title']) : '';
+                                            $cta_url         = !empty($cta['url']) ? esc_url($cta['url']) : '';
+                                            $cta_target      = !empty($cta['target']) ? esc_attr($cta['target']) : '';
+                                            ?>
+    
+                                            <div class="swiper-slide">
+                                                <div class="row flex-lg-row flex-column-reverse">
+                                                    <div class="col-lg-6 col-12 d-flex flex-column justify-center pt-lg-0 pt-42">
+                                                        <h3 class="h2 text-purple mb-12"><?php the_title(); ?></h3>
+        
+                                                        <div class="d-grid mb-42 gap-12">
+                                                            <?php foreach ($items as $key => $item) { 
+                                                                $icono           = !empty($item['icono']) ? $item['icono'] : '';
+                                                                $item_cta        = !empty($item['enlace']) ? $item['enlace'] : [];
+                                                                $item_cta_texto  = !empty($item_cta['title']) ? esc_html($item_cta['title']) : '';
+                                                                $item_cta_url    = !empty($item_cta['url']) ? esc_url($item_cta['url']) : '';
+                                                                $item_cta_target = !empty($item_cta['target']) ? esc_attr($item_cta['target']) : '';
+                                                            ?>
+                                                                <a href="<?php echo $item_cta_url; ?>" target="<?php echo $item_cta_target; ?>" class="font-sans d-flex align-center gap-6 hover" title="<?php echo $item_cta_texto; ?>">
+                                                                    <img src="<?php echo $icono; ?>" alt="<?php echo $item_cta_texto; ?>" title="<?php echo $item_cta_texto; ?>">
+                                                                    <span class="hover-link hover-text-blue"><?php echo $item_cta_texto; ?></span>
+                                                                </a>   
+                                                            <?php } ?>
+                                                        </div>
+                                                        <?php if($cta_text) { ?>
+                                                        <a class="btn btn-primary shadow-none" href="<?php echo $cta_text; ?>" target="<?php echo $cta_target; ?>" title="<?php echo $cta_text; ?>">
+                                                            <?php echo $cta_text; ?>
+                                                        </a>
+                                                        <?php } ?>
+                                                    </div>
+                                                    <div class="col-lg-6 col-12">
+                                                        <?php
+                                                        $imagen_secundaria = get_field('imagen_secundaria');
+                                                        if ($imagen_secundaria): ?>
+                                                            <img src="<?php echo esc_url($imagen_secundaria['url']); ?>" alt="<?php echo esc_attr($imagen_secundaria['alt']); ?>" class="img-fluid w-100 d-block rounded-18">
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
                             </div>
+                            <div class="pt-lg-60 pt-60 pb-lg-0 pb-24 position-relative z-1">
+                                <div class="container">
+                                    <div class="d-flex justify-center gap-24">
+                                        <div class="swiper-fraction swiper-fraction-tab d-flex"></div>
+                                        <div class="custom-pagination swiper-pagination-tab"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev-tab swiper-button-blanco"></div>
+                            <div class="swiper-button-next-tab swiper-button-blanco"></div>
                         </div>
                     </div>
 
-                    <div class="d-lg-none pb-lg-30 position-relative z-1">
-                        <div class="container">
-                            <div class="d-flex justify-center justify-lg-start gap-24 pt-lg-0 pt-24 pb-lg-0 pb-60 translate-y--80">
-                                <div class="swiper-fraction-tar swiper-fraction-blanco d-flex font-sans"></div>
-                                <div class="custom-pagination swiper-pagination-tar swiper-pagination-blanco"></div>
-                            </div>
-                        </div>
-                    </div>
                     <?php
                 } else {
                     ?>

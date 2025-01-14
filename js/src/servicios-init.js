@@ -72,7 +72,10 @@ jQuery(document).ready(function ($) {
                 html += '</div></div></div>';
             });
         } else {
-            html = '<div class="no-results"><p>No se encontraron servicios</p></div>';
+            html += '<div class="no-results">';
+            html += '<h3 class="font-gilda h2 text-secondary mb-24 text-center">No se encontraron servicios</h3>';
+            html += '<a href="/servicios" class="btn btn-primary btn-center">Volver</a>';
+            html += '</div>';
         }
         $("#resultados-servicios").html(html);
     }

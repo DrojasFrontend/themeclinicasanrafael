@@ -1,18 +1,4 @@
 <?php
-// function create_especialistas_post_type() {
-//     register_post_type('especialistas', array(
-//         'labels' => array(
-//             'name' => 'Especialidades',
-//             'singular_name' => 'Especialidad'
-//         ),
-//         'public' => true,
-//         'has_archive' => true,
-//         'supports' => array('title', 'editor', 'thumbnail'),
-//         'menu_icon' => 'dashicons-healthcare'
-//     ));
-// }
-// add_action('init', 'create_especialistas_post_type');
-
 function search_especialistas() {
     $search = $_POST['search'];
     
