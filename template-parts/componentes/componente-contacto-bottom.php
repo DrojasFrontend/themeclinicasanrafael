@@ -13,7 +13,7 @@ $titulo_visitanos = !empty($grupo_visitanos['titulo']) ? esc_html($grupo_visitan
 $items            = !empty($grupo_visitanos['items']) ? $grupo_visitanos['items'] : [];
 ?>
 
-<section class="seccionContactoBottom overflow-hidden pt-lg-72 pt-80" style="order: 10">
+<section class="seccionContactoBottom overflow-hidden pt-lg-72 pt-80 px-lg-60" style="order: 10">
   <div class="container">
     <div class="text-center">
       <?php if ($subtitulo) { ?>
@@ -27,9 +27,9 @@ $items            = !empty($grupo_visitanos['items']) ? $grupo_visitanos['items'
     </div>
   </div>
 
-  <div class="container">
+  <div class="container position-relative">
     <div class="row">
-      <div class="swiper d-block d-lg-grid contactoBottomSwiper extended-swiper ms-lg-n60 overflow-lg-inherit">
+      <div class="swiper d-block d-lg-grid contactoBottomSwiper extended-swiper overflow-lg-inherit">
         <div class="swiper-wrapper d-block d-lg-flex">
           <?php foreach ($tarjetas as $tarjeta) { 
             $imagen_id   = !empty($tarjeta['imagen']['ID']) ? intval($tarjeta['imagen']['ID']) : '';
@@ -70,6 +70,8 @@ $items            = !empty($grupo_visitanos['items']) ? $grupo_visitanos['items'
         </div>
       </div>
     </div>
+    <div class="swiper-button-azul swiper-button-prev-con"></div>
+    <div class="swiper-button-azul swiper-button-next-con"></div>
   </div>
 
   <div class="container">

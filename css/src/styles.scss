@@ -472,7 +472,9 @@ strong {
 		&-prev-not,
 		&-next-not,
 		&-prev-tab,
-		&-next-tab {
+		&-next-tab,
+		&-prev-con,
+		&-next-con {
 			position: absolute;
 			display: none;
 			width: 70px;
@@ -512,14 +514,15 @@ strong {
 		}
 
 		&-next,
-		&-next-not {
+		&-next-not{
 			right: -90px;
 			background: url(../../images/iconos/icono-siguiente.svg);
 		}
 
 		&-prev,
 		&-prev-not,
-		&-prev-tab {
+		&-prev-tab,
+		&-prev-con {
 			&.swiper-button-blanco {
 				left: -75px;
 				background: url(../../images/iconos/icono-anterior-blanco.png);
@@ -533,7 +536,8 @@ strong {
 
 		&-next,
 		&-next-not,
-		&-next-tab {
+		&-next-tab,
+		&-next-con {
 			&.swiper-button-blanco {
 				right: -75px;
 				background: url(../../images/iconos/icono-siguiente-blanco.png);
