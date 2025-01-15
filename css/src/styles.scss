@@ -881,8 +881,10 @@ span.mfcf7-zl-multifile-name {
 
 input[type="date"] {
 	display: flex;
-	font-size: .9rem;
+	font-size: 0.9rem;
 	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
 
 	&:before {
 		content: attr(placeholder);
@@ -1054,24 +1056,34 @@ input[type="date"] {
 }
 
 /* seccionContactoBottom */
-.seccionContactoBottom__visitanos {
-	p,
-	a {
-		font-size: 0.875rem;
-		font-style: normal;
-		font-weight: 600;
-		line-height: 20px;
-		letter-spacing: -0.14px;
+.seccionContactoBottom {
+	&__visitanos {
+		p,
+		a {
+			font-size: 0.875rem;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 20px;
+			letter-spacing: -0.14px;
 
-		@media only screen and (min-width: 576px) {
-			font-size: 1.125rem;
-			line-height: 24px;
-			letter-spacing: normal;
+			@media only screen and (min-width: 576px) {
+				font-size: 1.125rem;
+				line-height: 24px;
+				letter-spacing: normal;
+			}
+		}
+
+		a {
+			font-weight: 400;
 		}
 	}
 
-	a {
-		font-weight: 400;
+	.extended-swiper {
+		padding-right: 18px;
+
+		@media only screen and (min-width: 680px) {
+			padding-right: 80px;
+		}
 	}
 }
 

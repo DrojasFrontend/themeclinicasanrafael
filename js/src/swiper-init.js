@@ -87,6 +87,62 @@ export const initServiciosSwiper = () => {
 	});
 };
 
+export const initContactoBottomSwiper = () => {
+  // Solo inicializar Swiper si estamos en desktop
+  if (window.innerWidth >= 768) {
+    const swiper = new Swiper(".contactoBottomSwiper", {
+      modules: [Pagination, Navigation],
+      slidesPerView: "auto",
+      spaceBetween: 36,
+      centeredSlides: false,
+      navigation: {
+        nextEl: ".swiper-button-next-not",
+        prevEl: ".swiper-button-prev-not",
+        clickable: true,
+        disabledClass: 'swiper-nav-disabled',
+      },
+      pagination: {
+        el: ".swiper-pagination-ser",
+        type: "bullets",
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 1.8,
+          spaceBetween: 20,
+        },
+        1366: {
+          slidesPerView: 1.8,
+          spaceBetween: 36,
+        },
+      },
+      on: {
+        init: function () {
+          updateServiciosFraction(this);
+        },
+        slideChange: function () {
+          updateServiciosFraction(this);
+        }
+      },
+    });
+  }
+
+  function updateServiciosFraction(swiper) {
+    const currentIndex = swiper.realIndex + 1;
+    const totalSlides = swiper.slides.length;
+    const fractionHtml = `
+      <span class="current">${currentIndex}</span>
+      <span class="separator">/</span>
+      <span class="total">${totalSlides}</span>
+    `;
+    document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml;
+  }
+};
+
 export const initNoticiasSwiper = () => {
 	const swiper = new Swiper(".noticiasSwiper", {
 		modules: [Pagination, Navigation],

@@ -13,7 +13,7 @@ $titulo_visitanos = !empty($grupo_visitanos['titulo']) ? esc_html($grupo_visitan
 $items            = !empty($grupo_visitanos['items']) ? $grupo_visitanos['items'] : [];
 ?>
 
-<section class="seccionContactoBottom pt-lg-72 pt-80" style="order: 10">
+<section class="seccionContactoBottom overflow-hidden pt-lg-72 pt-80" style="order: 10">
   <div class="container">
     <div class="text-center">
       <?php if ($subtitulo) { ?>
@@ -25,45 +25,54 @@ $items            = !empty($grupo_visitanos['items']) ? $grupo_visitanos['items'
         'clase' => 'mb-lg-72 mb-42',
       ))?>
     </div>
-    <div class="row">
-      <?php foreach ($tarjetas as $tarjeta) { 
-        $imagen_id   = !empty($tarjeta['imagen']['ID']) ? intval($tarjeta['imagen']['ID']) : '';
-        $tarjeta_titulo      = !empty($tarjeta['titulo']) ? esc_html($tarjeta['titulo']) : '';
-        $tarjeta_descripcion = !empty($tarjeta['descripcion']) ? esc_html($tarjeta['descripcion']) : '';
-        $cta                 = !empty($tarjeta['cta']) ? $tarjeta['cta'] : [];
-        $cta_text            = esc_html($cta['title']);
-        $cta_url             = esc_url($cta['url']);
-        $cta_target          = esc_attr($cta['target']);
-        ?>
-        <div class="col-lg-6 mb-42">
-          <div class="row">
-            <div class="col-lg-6 mb-lg-0 mb-24">
-              <?php echo generar_image_responsive($imagen_id, 'custom-size', $sitename, 'img-fluid rounded'); ?>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex flex-column justify-between h-lg-100 gap-24">
-                <div>
-                  <?php if ($tarjeta_titulo) { ?>
-                    <h3 class="h5 text-secondary mb-12"><?php echo $tarjeta_titulo; ?></h3>
-                  <?php } ?>
+  </div>
 
-                  <?php if ($tarjeta_descripcion) { ?>
-                    <p class="p text-secondary"><?php echo $tarjeta_descripcion; ?></p>
-                  <?php } ?>
+  <div class="container">
+    <div class="row">
+      <div class="swiper d-block d-lg-grid contactoBottomSwiper extended-swiper ms-lg-n60 overflow-lg-inherit">
+        <div class="swiper-wrapper d-block d-lg-flex">
+          <?php foreach ($tarjetas as $tarjeta) { 
+            $imagen_id   = !empty($tarjeta['imagen']['ID']) ? intval($tarjeta['imagen']['ID']) : '';
+            $tarjeta_titulo      = !empty($tarjeta['titulo']) ? esc_html($tarjeta['titulo']) : '';
+            $tarjeta_descripcion = !empty($tarjeta['descripcion']) ? esc_html($tarjeta['descripcion']) : '';
+            $cta                 = !empty($tarjeta['cta']) ? $tarjeta['cta'] : [];
+            $cta_text            = esc_html($cta['title']);
+            $cta_url             = esc_url($cta['url']);
+            $cta_target          = esc_attr($cta['target']);
+            ?>
+            <div class="swiper-slide h-auto h-lg-100 mb-lg-0 mb-30">
+              <div class="row">
+                <div class="col-lg-6 mb-lg-0 mb-24">
+                  <?php echo generar_image_responsive($imagen_id, 'custom-size', $sitename, 'img-fluid rounded'); ?>
                 </div>
-                <?php if($cta_text) { ?>
-                  <a class="font-sans p text-primary fw-bold d-flex align-center gap-6 hover" href="<?php echo $cta_url; ?>" target="<?php echo $cta_target;?>" title="<?php echo $cta_text; ?>">
-                    <span class="hover-link"><?php echo $cta_text; ?></span>
-                    <i class="icono icono-flecha"></i>
-                  </a>
-                <?php } ?>
+                <div class="col-lg-6">
+                  <div class="d-flex flex-column justify-between h-lg-100 gap-24">
+                    <div>
+                      <?php if ($tarjeta_titulo) { ?>
+                        <h3 class="h5 text-secondary mb-12"><?php echo $tarjeta_titulo; ?></h3>
+                      <?php } ?>
+    
+                      <?php if ($tarjeta_descripcion) { ?>
+                        <p class="p text-secondary"><?php echo $tarjeta_descripcion; ?></p>
+                      <?php } ?>
+                    </div>
+                    <?php if($cta_text) { ?>
+                      <a class="font-sans p text-primary fw-bold d-flex align-center gap-6 hover" href="<?php echo $cta_url; ?>" target="<?php echo $cta_target;?>" title="<?php echo $cta_text; ?>">
+                        <span class="hover-link"><?php echo $cta_text; ?></span>
+                        <i class="icono icono-flecha"></i>
+                      </a>
+                    <?php } ?>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          <?php } ?>
         </div>
-      <?php } ?>
+      </div>
     </div>
+  </div>
 
+  <div class="container">
     <div class="text-center pt-lg-90">
       <?php get_template_part('template-parts/componentes/componente', 'titulo-h2', array(
         'titulo' => $titulo_visitanos,
