@@ -35,13 +35,13 @@ $items            = !empty($grupo_visitanos['items']) ? $grupo_visitanos['items'
         $cta_url             = esc_url($cta['url']);
         $cta_target          = esc_attr($cta['target']);
         ?>
-        <div class="col-lg-6 mb-lg-0 mb-30">
+        <div class="col-lg-6 mb-42">
           <div class="row">
             <div class="col-lg-6 mb-lg-0 mb-24">
               <?php echo generar_image_responsive($imagen_id, 'custom-size', $sitename, 'img-fluid rounded'); ?>
             </div>
             <div class="col-lg-6">
-              <div class="d-flex flex-column justify-between h-lg-100 gap-lg-0 gap-24">
+              <div class="d-flex flex-column justify-between h-lg-100 gap-24">
                 <div>
                   <?php if ($tarjeta_titulo) { ?>
                     <h3 class="h5 text-secondary mb-12"><?php echo $tarjeta_titulo; ?></h3>

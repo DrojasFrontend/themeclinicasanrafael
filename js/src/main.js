@@ -1,5 +1,6 @@
 import { Tabs } from "bootstrap";
 import {} from  "./menu-init";
+import {} from  "./validacion-formulario-init";
 import {
 	initServiciosSwiper,
 	initNoticiasSwiper,

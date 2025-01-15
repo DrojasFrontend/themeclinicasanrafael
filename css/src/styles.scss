@@ -736,6 +736,30 @@ textarea.form-control {
 			border: 0;
 		}
 	}
+
+	&-files {
+		#mfcf7_zl_add_file {
+			position: relative;
+			color: #169bd7;
+			font-family: inherit;
+			width: 100%;
+			border: 2px dashed #169bd7;
+			border-radius: 6px;
+			padding: 20px;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			background: transparent;
+			text-align: center;
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 22px;
+
+			&:before {
+				content: ".";
+			}
+		}
+	}
 }
 
 .multilinefile {
@@ -853,6 +877,27 @@ span.mfcf7-zl-multifile-name {
 .file-preview {
 	padding: 14px;
 	@extend .bg-white;
+}
+
+input[type="date"] {
+	display: flex;
+	font-size: .9rem;
+	align-items: center;
+
+	&:before {
+		content: attr(placeholder);
+		font-size: 1.125rem;
+	}
+}
+
+.wpcf7-not-valid-tip {
+	margin-top: 12px;
+}
+
+.wpcf7-response-output {
+	font-family: inherit;
+	text-align: center;
+	border-color: #00a0d2 !important;
 }
 
 .icono {
@@ -1313,8 +1358,6 @@ span.mfcf7-zl-multifile-name {
 				}
 			}
 		}
-
-		
 	}
 
 	&-link,
