@@ -22,8 +22,9 @@ $redes            = !empty($grupo_header['redes']) ? $grupo_header['redes'] : []
         <?php foreach ($redes as $key => $red) { 
           $red_icono = !empty($red['icono']) ? esc_url($red['icono']) : '';
           $red_text = !empty($red['cta']['title']) ? esc_html($red['cta']['title']) : '';
+          $red_url = !empty($red['cta']['url']) ? esc_html($red['cta']['url']) : '';
           ?>
-          <a href="<?php echo $red_text; ?>" target="_blank" title="<?php echo $red_text; ?>">
+          <a href="<?php echo $red_url; ?>" target="_blank" title="<?php echo $red_text; ?>">
             <span class="sr-only"><?php echo $red_text; ?></span>
             <img src="<?php echo $red_icono; ?>" alt="">
           </a>
