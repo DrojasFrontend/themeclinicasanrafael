@@ -90,6 +90,11 @@ function display_sedes_tabs() {
                                 <?php
                                 while ($query->have_posts()) {
                                     $query->the_post();
+                                    $grupo_informacion_adicional = get_field('grupo_informacion_adicional');
+                                    $cta                         = !empty($grupo_informacion_adicional['cta']) ? $grupo_informacion_adicional['cta'] : [];
+                                    $cta_text                    = !empty($cta['title']) ? esc_html($cta['title']) : '';
+                                    $cta_url                     = !empty($cta['url']) ? esc_url($cta['url']) : '';
+                                    $cta_target                  = !empty($cta['target']) ? esc_attr($cta['target']) : '';
                                     ?>
                                     <div class="swiper-slide w-lg-100 rounded bg-white shadow-lg-tarjeta overflow-hidden">
                                         <div class="h-100 clickeable hover">
@@ -100,10 +105,17 @@ function display_sedes_tabs() {
                                             <?php endif; ?>
                                             <div class="p-24">
                                                 <h3 class="h4 text-purple mb-12"><?php the_title(); ?></h3>
-                                                <a href="<?php the_permalink(); ?>" class="font-sans p text-primary fw-bold d-flex align-center gap-6">
-                                                    <span class="hover-link">Conoce más</span>
-                                                    <i class="icono icono-flecha"></i>
-                                                </a>
+                                                <?php if($cta_text) { ?>
+                                                    <a class="font-sans p text-primary fw-bold d-flex align-center gap-6" href="<?php echo $cta_url; ?>" target="<?php echo $cta_target;?>" title="<?php echo $cta_text; ?>">
+                                                        <span class="hover-link"><?php echo $cta_text; ?></span>
+                                                        <i class="icono icono-flecha"></i>
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <a href="<?php the_permalink(); ?>" class="font-sans p text-primary fw-bold d-flex align-center gap-6">
+                                                        <span class="hover-link">Conoce más</span>
+                                                        <i class="icono icono-flecha"></i>
+                                                    </a>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>

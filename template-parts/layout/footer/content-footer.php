@@ -9,7 +9,7 @@
     <div class="pt-lg-80 pb-lg-12 pb-42">
       <div class="row align-center">
         <div class="col-lg-9 mb-lg-0 mb-24 text-lg-start text-center">
-          <div class="copyright p text-white">Todos los derechos reservados Clínica San Rafael 2024</div>
+          <div class="copyright p text-white">Todos los derechos reservados Clínica San Rafael 2025</div>
         </div>
         <div class="col-12 col-lg-2 text-center">
           <img width="171" height="" src="<?php echo THEME_IMG . 'vigilado-por-supersalud.png'?>" alt="Vigilado por supersalud">
