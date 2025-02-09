@@ -25,9 +25,9 @@ $mostrar_contacto   = ($contentGlobal) ? get_field('mostrar_contacto', $contentG
       )) ?>
 
     <?php if($mostrar_formulario) { ?>
-      <!-- Formulario Historia Clinica -->
-      <?php get_template_part('template-parts/secciones/contactanos/formulario', 'contacto') ?>
-      <!-- Fin Formulario Historia Clinica -->
+      <!-- Formulario Contacto -->
+      <?php get_template_part('template-parts/componentes/componente', 'formulario') ?>
+      <!-- Fin Formulario Contacto -->
     <?php } ?>
 
     <?php if($mostrar_contacto) { ?>

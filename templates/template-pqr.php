@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Página Solicitar Historia Clínica
+ * Template Name: Página PQR
  * 
  * @package ThemeClinicaSanRafael
  */
@@ -10,12 +10,14 @@ if (!defined('ABSPATH')) {
 }
 
 get_header();
-$grupo_solicitar_historia = get_field('grupo_solicitar_historia');
-$descripcion              = !empty($grupo_solicitar_historia['descripcion']) ? $grupo_solicitar_historia['descripcion'] : '';
-$mostrar_formulario       = get_field('mostrar_formulario');
+$grupo_pqr          = get_field('grupo_pqr');
+$descripcion        = !empty($grupo_pqr['descripcion']) ? $grupo_pqr['descripcion'] : '';
+$mostrar_formulario = get_field('mostrar_formulario');
+$grupo_formulario   = get_field('grupo_formulario');
 
-$contentGlobal            = get_page_by_path('contenido-global')->ID;
-$mostrar_contacto         = ($contentGlobal) ? get_field('mostrar_contacto', $contentGlobal) : null;
+
+$contentGlobal      = get_page_by_path('contenido-global')->ID;
+$mostrar_contacto   = ($contentGlobal) ? get_field('mostrar_contacto', $contentGlobal) : null;
 
 ?>
   <main>
@@ -23,12 +25,13 @@ $mostrar_contacto         = ($contentGlobal) ? get_field('mostrar_contacto', $co
     <?php get_template_part('template-parts/componentes/componente', 'banner-titulo-desc', array(
       'titulo' => get_the_title(),
       'descripcion' => $descripcion,
-    )) ?>
+      'color' => 'mb-12'
+      )) ?>
 
     <?php if($mostrar_formulario) { ?>
-      <!-- Formulario Historia Clinica -->
+      <!-- Formulario PQR -->
       <?php get_template_part('template-parts/componentes/componente', 'formulario') ?>
-      <!-- Fin Formulario Historia Clinica -->
+      <!-- Fin Formulario PQR -->
     <?php } ?>
 
     <?php if($mostrar_contacto) { ?>

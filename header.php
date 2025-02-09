@@ -20,8 +20,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-
    <!-- SEO METADATOS -->
    <?php 
      $titulo_principal = get_field('titulo_principal') ?: '';
@@ -47,32 +45,32 @@
     ?>    
     
 	<title><?php echo $titulo_principal; ?></title>
-    <meta name="title" content="<?php echo esc_attr($seo_titulo); ?>" />
-    <meta name="keywords" content="<?php echo esc_attr($seo_keywords); ?>" />
-    <meta name="description" content="<?php echo esc_attr($seo_description); ?>" />
-    <meta name="author" content="<?php echo esc_attr($seo_author); ?>" />
+  <meta name="title" content="<?php echo esc_attr($seo_titulo); ?>" />
+  <meta name="keywords" content="<?php echo esc_attr($seo_keywords); ?>" />
+  <meta name="description" content="<?php echo esc_attr($seo_description); ?>" />
+  <meta name="author" content="<?php echo esc_attr($seo_author); ?>" />
 
-    <meta name="robots" content="index,follow" />
-    <meta property="og:locale" content="es_CO" />
-    <meta property="og:type" content="object" />
-    <?php if (!empty($image)): ?>
-    <meta property="og:image" content="<?php echo esc_url($image); ?>" />
-    <?php endif; ?>
-    <?php if (!empty($titulo)): ?>
-    <meta property="og:title" content="<?php echo esc_attr($titulo); ?>" />
-    <?php endif; ?>
-    <?php if (!empty($description)): ?>
-    <meta property="og:description" content="<?php echo esc_attr($description); ?>" />
-    <?php endif; ?>
-    <?php if (!empty($url)): ?>
-    <meta property="og:url" content="<?php echo $url; ?>" />
-    <?php endif; ?>
-    <?php if (!empty($site_name)): ?>
-    <meta property="og:site_name" content="<?php echo esc_attr($site_name); ?>" />
-    <?php endif; ?>
-    <?php if (!empty($canonical)): ?>
-    <link rel="canonical" href="<?php echo esc_url($canonical); ?>" />
-    <?php endif; ?>
+  <meta name="robots" content="index,follow" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="object" />
+  <?php if (!empty($image)): ?>
+  <meta property="og:image" content="<?php echo esc_url($image); ?>" />
+  <?php endif; ?>
+  <?php if (!empty($titulo)): ?>
+  <meta property="og:title" content="<?php echo esc_attr($titulo); ?>" />
+  <?php endif; ?>
+  <?php if (!empty($description)): ?>
+  <meta property="og:description" content="<?php echo esc_attr($description); ?>" />
+  <?php endif; ?>
+  <?php if (!empty($url)): ?>
+  <meta property="og:url" content="<?php echo $url; ?>" />
+  <?php endif; ?>
+  <?php if (!empty($site_name)): ?>
+  <meta property="og:site_name" content="<?php echo esc_attr($site_name); ?>" />
+  <?php endif; ?>
+  <?php if (!empty($canonical)): ?>
+  <link rel="canonical" href="<?php echo esc_url($canonical); ?>" />
+  <?php endif; ?>
 
   <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">

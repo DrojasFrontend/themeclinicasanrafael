@@ -9,16 +9,19 @@ $redes            = !empty($grupo_header['redes']) ? $grupo_header['redes'] : []
 <div class="header__top d-none d-lg-block bg-purple py-10">
   <div class="header__top-container">
     <div class="row">
-      <div class="col-lg-9">
+      <div class="col-lg-11">
         <div class="d-flex gap-30">
-          <?php foreach ($items as $key => $item) { 
-            $cta = !empty($item['cta']) ? $item['cta'] : '';
-          ?>
+        <?php foreach ($items as $key => $item) { 
+          $cta = !empty($item['cta']) ? $item['cta'] : '';
+          $class = ($key === 2) ? 'flex-1' : '';
+        ?>
+          <div class="<?php echo $class; ?>">
             <?php echo $cta; ?>
-          <?php }?>
+          </div>
+        <?php } ?>
         </div>
       </div>
-      <div class="col-lg-3 d-flex justify-end gap-24">
+      <div class="col-lg-1 d-flex justify-end gap-24">
         <?php foreach ($redes as $key => $red) { 
           $red_icono = !empty($red['icono']) ? esc_url($red['icono']) : '';
           $red_text = !empty($red['cta']['title']) ? esc_html($red['cta']['title']) : '';

@@ -1,9 +1,9 @@
 {
-    "key": "group_675e2df90acfe",
-    "title": "Página Solicitar historia",
+    "key": "group_67a8c85b0e826",
+    "title": "Página PQR",
     "fields": [
         {
-            "key": "field_675e2df98d601",
+            "key": "field_67a8c85b10e98",
             "label": "Titulo página",
             "name": "",
             "aria-label": "",
@@ -20,9 +20,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_675e2e235c114",
+            "key": "field_67a8c85b10ea1",
             "label": "Grupo",
-            "name": "grupo_solicitar_historia",
+            "name": "grupo_pqr",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -36,7 +36,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_675e2f395c116",
+                    "key": "field_67a8c85b12544",
                     "label": "Descripción",
                     "name": "descripcion",
                     "aria-label": "",
@@ -58,7 +58,7 @@
             ]
         },
         {
-            "key": "field_675e2f995c117",
+            "key": "field_67a8c85b10ea7",
             "label": "Formulario",
             "name": "",
             "aria-label": "",
@@ -75,7 +75,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_675e2fac5c118",
+            "key": "field_67a8c85b10eaa",
             "label": "Mostrar",
             "name": "mostrar_formulario",
             "aria-label": "",
@@ -95,7 +95,7 @@
             "ui": 1
         },
         {
-            "key": "field_675e334a756d1",
+            "key": "field_67a8c85b10eae",
             "label": "Grupo",
             "name": "grupo_formulario",
             "aria-label": "",
@@ -111,7 +111,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_67a8ce2ab15ab",
+                    "key": "field_67a8ca989c025",
                     "label": "ID Formulario",
                     "name": "id_formulario",
                     "aria-label": "",
@@ -131,7 +131,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_675e335a756d2",
+                    "key": "field_67a8c85b159d0",
                     "label": "Imagen",
                     "name": "imagen",
                     "aria-label": "",
@@ -163,7 +163,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/template-solicitar-historia.php"
+                "value": "templates\/template-pqr.php"
             }
         ]
     ],
@@ -176,5 +176,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1739116377
+    "modified": 1739116789
 }

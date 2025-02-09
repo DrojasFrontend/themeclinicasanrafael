@@ -111,6 +111,26 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_67a8cefbdae30",
+                    "label": "ID formulario",
+                    "name": "id_formulario",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_675ed6bf98283",
                     "label": "Imagen",
                     "name": "imagen",
@@ -156,5 +176,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734268898
+    "modified": 1739116857
 }
