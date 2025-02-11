@@ -513,7 +513,7 @@ strong {
 		}
 
 		&-next,
-		&-next-not{
+		&-next-not {
 			right: -90px;
 			background: url(../../images/iconos/icono-siguiente.svg);
 		}
@@ -699,10 +699,12 @@ textarea.form-control {
 
 .upload {
 	&-area {
+		position: relative;
 		border: 2px dashed #169bd7;
 		border-radius: 6px;
 		padding: 20px;
 		transition: all 0.3s ease;
+		margin-bottom: 15px;
 		cursor: pointer;
 	}
 
@@ -763,6 +765,84 @@ textarea.form-control {
 			}
 		}
 	}
+}
+
+.upload-container {
+	width: 100%;
+}
+
+.upload-area {
+	position: relative;
+	margin-bottom: 15px;
+	transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+	background-color: #f1f5f9;
+}
+
+.file-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.upload-message {
+	@extend .font-sans, .fw-bold;
+	color: #1a5091;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.upload-icon {
+	font-size: 20px;
+}
+
+.file-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.file-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	background-color: #f8fafc;
+	border-radius: 6px;
+	border: 1px solid #e2e8f0;
+}
+
+.file-info {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.file-icon {
+	color: #10b981;
+	font-size: 20px;
+}
+
+.remove-file {
+	color: #64748b;
+	cursor: pointer;
+	padding: 5px;
+	border: none;
+	background: none;
+	font-size: 18px;
+}
+
+.remove-file:hover {
+	color: #ef4444;
 }
 
 .multilinefile {
@@ -840,7 +920,7 @@ span.mfcf7-zl-multifile-name {
 
 .file-name {
 	flex: 1;
-	@extend .text-secondary, .font-sans, .fw-regular;
+	@extend .text-secondary, .font-sans, .fw-medium;
 	font-size: 14px;
 	line-height: 20px;
 	letter-spacing: -0.14px;
@@ -1363,7 +1443,7 @@ input[type="date"] {
 			bottom: 0.625rem;
 			width: 0;
 			border-bottom: 1px solid #fff;
-			transition: width .4s ease;
+			transition: width 0.4s ease;
 		}
 	}
 

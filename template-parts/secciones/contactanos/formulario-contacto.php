@@ -8,7 +8,7 @@ $id_formulario    = !empty($grupo_formulario['id_formulario']) ? $grupo_formular
   <div class="container">
     <div class="d-flex flex-column-reverse flex-lg-row">
       <div class="col-lg-6">
-        <?php echo do_shortcode('[contact-form-7 id="' . $id_formulario . '"]'); ?>
+        <?php echo do_shortcode("[custom_form]")?>
       </div>
       <div class="col-lg-6">
         <div class="mt-lg-n120 mt-n90 ps-lg-72">

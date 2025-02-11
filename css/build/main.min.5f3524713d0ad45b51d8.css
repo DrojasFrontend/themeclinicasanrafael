@@ -887,7 +887,7 @@ button.swiper-pagination-bullet {
 }
 
 .font-sans, .footer .copyright, .footer a, .idiomas p, .seccionAccordion ul li,
-.seccionAccordion p, .acceptance, .icono-whatsapp-float span, .file-name, .upload-file input, .swiper .current,
+.seccionAccordion p, .acceptance, .icono-whatsapp-float span, .file-name, .upload-message, .upload-file input, .swiper .current,
 .swiper .total, .swiper-fraction span, .submenu-title, .header__top a,
 .header__top p, .btn {
   font-family: "Source Sans 3", sans-serif;
@@ -6542,11 +6542,11 @@ textarea.form-control-lg {
   font-weight: 300 !important;
 }
 
-.fw-regular, .seccionTextoCTAItems .texto-adicional strong, .file-name {
+.fw-regular, .seccionTextoCTAItems .texto-adicional strong {
   font-weight: 400 !important;
 }
 
-.fw-medium {
+.fw-medium, .file-name {
   font-weight: 500 !important;
 }
 
@@ -6554,7 +6554,7 @@ textarea.form-control-lg {
   font-weight: 600 !important;
 }
 
-.fw-bold {
+.fw-bold, .upload-message {
   font-weight: 700 !important;
 }
 
@@ -18343,10 +18343,12 @@ textarea.form-control {
 }
 
 .upload-area {
+  position: relative;
   border: 2px dashed #169bd7;
   border-radius: 6px;
   padding: 20px;
   transition: all 0.3s ease;
+  margin-bottom: 15px;
   cursor: pointer;
 }
 .upload-text {
@@ -18397,6 +18399,83 @@ textarea.form-control {
 }
 .upload-files #mfcf7_zl_add_file:before {
   content: ".";
+}
+
+.upload-container {
+  width: 100%;
+}
+
+.upload-area {
+  position: relative;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  background-color: #f1f5f9;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.upload-message {
+  color: #1a5091;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upload-icon {
+  font-size: 20px;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-icon {
+  color: #10b981;
+  font-size: 20px;
+}
+
+.remove-file {
+  color: #64748b;
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+.remove-file:hover {
+  color: #ef4444;
 }
 
 .multilinefile + label span {
