@@ -12,7 +12,7 @@
         <div class="copyright p text-white">Todos los derechos reservados Clínica San Rafael <?php echo date('Y'); ?></div>
         </div>
         <div class="col-12 col-lg-2 text-center">
-          <img width="171" height="" src="<?php echo THEME_IMG . 'vigilado-por-supersalud.svg'?>" alt="Vigilado por supersalud">
+          <img width="171" height="" src="<?php echo THEME_IMG . 'vigilado-por-supersalud.png'?>" alt="Vigilado por supersalud">
         </div>
       </div>
     </div>

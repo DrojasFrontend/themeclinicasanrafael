@@ -21,7 +21,7 @@ $slides             = !empty($grupo_hero_carusel['slide']) ? $grupo_hero_carusel
                   <div class="col-lg-6 pt-lg-72 pt-0 pe-lg-120 pb-lg-90">
       
                     <?php if ($subtitulo) { ?>
-                      <p class="subtitulo mb-12"><?php echo $subtitulo; ?></p>
+                      <p class="subtitulo p-medium mb-24"><?php echo $subtitulo; ?></p>
                     <?php } ?>
                     
                     <?php get_template_part('template-parts/componentes/componente', 'titulo-h2', array(

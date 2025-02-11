@@ -21,7 +21,7 @@ $redes            = !empty($grupo_header['redes']) ? $grupo_header['redes'] : []
         <?php } ?>
         </div>
       </div>
-      <div class="col-lg-1 d-flex justify-end gap-24">
+      <div class="col-lg-1 d-flex justify-end align-center gap-24">
         <?php foreach ($redes as $key => $red) { 
           $red_icono = !empty($red['icono']) ? esc_url($red['icono']) : '';
           $red_text = !empty($red['cta']['title']) ? esc_html($red['cta']['title']) : '';
