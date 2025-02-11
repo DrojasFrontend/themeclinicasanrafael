@@ -58,7 +58,8 @@ export const initServiciosSwiper = () => {
 			<span class="separator">/</span>
 			<span class="total">${totalSlides}</span>
 		`;
-		document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml;
+		document.querySelector(".swiper-fraction-ser") ? document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml : null;
+
 	}
 
 	function initHeightServicios() {
@@ -139,7 +140,7 @@ export const initContactoBottomSwiper = () => {
       <span class="separator">/</span>
       <span class="total">${totalSlides}</span>
     `;
-		document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml;
+		document.querySelector(".swiper-fraction-ser") ? document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml : null;
 	}
 };
 
@@ -278,7 +279,7 @@ export const initServiciosDestacadosSwiper = () => {
 			<span class="separator">/</span>
 			<span class="total">${totalSlides}</span>
 		`;
-		document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml;
+		document.querySelector(".swiper-fraction-ser") ? document.querySelector(".swiper-fraction-ser").innerHTML = fractionHtml : null;
 	}
 
 	function initHeightServiciosDestacados() {

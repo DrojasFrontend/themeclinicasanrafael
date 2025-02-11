@@ -147,7 +147,6 @@ blockquote:after,
 q:before,
 q:after {
 	content: "";
-	content: none;
 }
 
 table {
@@ -1343,7 +1342,29 @@ input[type="date"] {
 /* Footer */
 .footer {
 	a {
-		@extend .d-block, .font-sans, .p, .text-white, .pb-12;
+		@extend .position-relative, .d-block, .font-sans, .p, .text-white, .pb-12;
+	}
+
+	li {
+		width: fit-content;
+		@extend .position-relative;
+
+		&:hover {
+			&:before {
+				@extend .w-100;
+			}
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 0.625rem;
+			width: 0;
+			border-bottom: 1px solid #fff;
+			transition: width .4s ease;
+		}
 	}
 
 	.copyright {

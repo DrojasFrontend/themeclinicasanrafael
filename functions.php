@@ -25,7 +25,6 @@ require_once THEME_PATH . '/inc/post-types/especialistas.php';
 require_once THEME_PATH . '/inc/post-types/servicios.php';
 require_once THEME_PATH . '/inc/menu.php';
 require_once THEME_PATH . '/inc/menu-mobile.php';
-require_once THEME_PATH . '/inc/pqrs-redirect.php';
 
 add_filter('wpcf7_country_text', function() {
   return 'Selecciona el país';
